@@ -1,0 +1,22 @@
+{
+  "name": "truffledb",
+  "version": "1.0.0",
+  "description": "A REST API for managing PostgreSQL databases. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bfararjeh/truffleDB.git"
+  },
+  "author": "Baha Alfararjeh <bahafararjeh@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bfararjeh/truffleDB/issues"
+  },
+  "homepage": "https://github.com/bfararjeh/truffleDB",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
