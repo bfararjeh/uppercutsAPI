@@ -2,6 +2,15 @@ from web_scraper import WebScraper
 import requests
 
 def main():
+    '''
+    This is the main web scraper. This creates a webscraper object defined from
+    the web_scraper.py file, then uses the url list below to pull liquidpedia
+    pages and start_gg slugs.
+
+    This code is null and void. Liquidpedia doesn't allow web scraping, however
+    I still wanted to finish this code regardless. It works if you don't get
+    rate limited.
+    '''
 
     webscraper = WebScraper()
     urls_to_scrape = [
@@ -15,7 +24,7 @@ def main():
         lp_tourney_urls += webscraper.grab_urls(url)
 
     try:
-        api_url = "http://localhost:3000/tournaments/index"
+        api_url = "http://localhost:3000/tournaments/index?fields=liquidpedia_url"
         response = requests.get(api_url)
         response.raise_for_status()
         data = response.json()

@@ -76,7 +76,7 @@ class WebScraper():
             try:
                 response = requests.get(url, timeout=10)
                 if response.status_code == 429:
-                    print(f"Rate limit hit at {url}. Stopping scrape.")
+                    print(f"\nRate limit hit at {url}. Stopping scrape.")
                     break
                 response.raise_for_status()
             except requests.exceptions.Timeout:
@@ -119,12 +119,17 @@ class WebScraper():
         return zip(url_list, slug_list)
 
     def write_to_csv(self, zipped: zip, filename: str):
-        
-        with open(filename+".csv", "w+", newline="") as out:
+        filepath = filename + ".csv"
+        file_exists = os.path.exists(filepath)
+        file_empty = not file_exists or os.path.getsize(filepath) == 0
+
+        with open(filepath, "a", newline="") as out:
             csv_writer = csv.writer(out)
-            csv_writer.writerow(("Liquidpedia URL", "Start.gg Slug"))
+
+            if file_empty:
+                csv_writer.writerow(("Liquidpedia URL", "Start.gg Slug"))
 
             for row in zipped:
                 csv_writer.writerow(row)
-        
-        print(f"Data written to {filename}.csv.")
+
+        print(f"Data appended to {filename}.csv.")
