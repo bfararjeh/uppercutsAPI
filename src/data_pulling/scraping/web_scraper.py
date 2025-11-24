@@ -1,3 +1,4 @@
+from pathlib import Path
 import requests, os, time, csv
 from tqdm import tqdm
 from bs4 import BeautifulSoup
@@ -119,7 +120,7 @@ class WebScraper():
         return zip(url_list, slug_list)
 
     def write_to_csv(self, zipped: zip, filename: str):
-        filepath = filename + ".csv"
+        filepath = Path(__file__).parent / f"{filename}.csv"
         file_exists = os.path.exists(filepath)
         file_empty = not file_exists or os.path.getsize(filepath) == 0
 

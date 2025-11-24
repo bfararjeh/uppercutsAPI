@@ -4,7 +4,6 @@ from web_scraper import WebScraper
 
 class TestWebScraper(unittest.TestCase):
 
-    
     @patch("requests.get")
     def test_grab_urls(self, mock_get):
         '''
