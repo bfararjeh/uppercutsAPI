@@ -1,3 +1,4 @@
 # uppercutsAPI
 
-This is a RESTful API designed to allow users to connect to and access a Street Fighter 6 player information database.
+This project has been deprecated due to already existing at https://fgcombo.com/en.
+The code may be repurposed in the future.
